@@ -49,6 +49,7 @@
 </script>
 
 <svelte:window on:keydown={handleWindowInput} />
+<svelte:body class={isDarkMode ? 'dark' : ''} />
 {#if binary.length < 2}
   <div class="hint {isDarkMode ? 'dark' : ''}">
     {#if isTouchEnabled}
@@ -166,6 +167,7 @@
     grid-template-rows: auto auto auto 1fr;
     width: 100vw;
     height: 100vh;
+    overflow-x: scroll;
   }
   main.dark {
     background: black;
