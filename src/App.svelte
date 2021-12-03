@@ -167,7 +167,7 @@
     grid-template-rows: auto auto auto 1fr;
     width: 100vw;
     height: 100vh;
-    overflow-x: scroll;
+    overflow-x: auto;
   }
   main.dark {
     background: black;
