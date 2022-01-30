@@ -1,10 +1,10 @@
 <script lang="ts">
-  const addToBinary = (input: string) => {
-    if (input === '1' || input === '0') {
+  const addToBinary = (key: string) => {
+    if (key === '1' || key === '0') {
       if (binary.length > 7) {
         binary = binary.substring(1, 8);
       }
-      binary += input;
+      binary += key;
     }
   };
   const handleWindowInput = (e: KeyboardEvent) => {
@@ -154,13 +154,16 @@
   div.hint > p {
     padding: 3vw;
     font-size: 4vw;
-    background: #000000aa;
+    background: white;
+    color: black;
+    border: .5rem solid black;
     border-radius: 1vw;
     z-index: 200;
   }
   div.hint.dark > p {
-    background: #ffffff88;
-    color: black;
+    background: black;
+    color: white;
+    border: .5rem solid white;
   }
   main {
     display: grid;
