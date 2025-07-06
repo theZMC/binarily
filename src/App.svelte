@@ -65,7 +65,7 @@
       <h1>binari.ly</h1>
       <h3>The binary conversion visualizer</h3>
     </aside>
-    <span on:click={handleDarkModeToggle}>
+    <button on:click={handleDarkModeToggle}>
       {#if isDarkMode}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@
           />
         </svg>
       {/if}
-    </span>
+    </button>
   </header>
   <article>
     <section>
