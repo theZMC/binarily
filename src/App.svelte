@@ -1,6 +1,6 @@
 <script lang="ts">
   const addToBinary = (key: string) => {
-    if (key === '1' || key === '0') {
+    if (key === "1" || key === "0") {
       if (binary.length > 7) {
         binary = binary.substring(1, 8);
       }
@@ -13,10 +13,10 @@
   const isDarkModeEnabled = () => {
     let darkModeCookie = getDarkModeCookie();
     if (darkModeCookie !== undefined) {
-      return darkModeCookie === 'true';
+      return darkModeCookie === "true";
     } else if (
       window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: light)').matches
+      window.matchMedia("(prefers-color-scheme: light)").matches
     ) {
       return false;
     } else {
@@ -26,9 +26,9 @@
   const getDarkModeCookie = () => {
     if (document.cookie) {
       return document.cookie
-        .split(';')
-        .find((row) => row.startsWith('darkMode='))
-        .split('=')[1];
+        .split(";")
+        .find((row) => row.startsWith("darkMode="))
+        .split("=")[1];
     }
   };
   const handleDarkModeToggle = () => {
@@ -38,18 +38,18 @@
 
   let hex: string;
   let decimal: number;
-  let binary: string = '0';
+  let binary: string = "0";
   let binaryChars: string[];
   let isDarkMode = isDarkModeEnabled();
   let isTouchEnabled = window.ontouchstart || navigator.maxTouchPoints > 0;
 
-  $: binaryChars = binary.split('');
+  $: binaryChars = binary.split("");
   $: decimal = Number.parseInt(binary, 2) || 0;
   $: hex = Number.parseInt(binary, 2).toString(16).toUpperCase();
 </script>
 
 <svelte:window on:keydown={handleWindowInput} />
-<svelte:body class={isDarkMode ? 'dark' : ''} />
+<svelte:body class={isDarkMode ? "dark" : ""} />
 {#if binary.length < 2}
   <div class="hint {isDarkMode ? 'dark' : ''}">
     {#if isTouchEnabled}
@@ -59,7 +59,7 @@
     {/if}
   </div>
 {/if}
-<main class={isDarkMode ? 'dark' : ''}>
+<main class={isDarkMode ? "dark" : ""}>
   <header>
     <aside>
       <h1>binari.ly</h1>
@@ -97,7 +97,7 @@
       {#each binaryChars as char, i}
         <p>
           <span>{char}</span>
-          <span class={char === '0' ? 'inactive' : 'active'}>
+          <span class={char === "0" ? "inactive" : "active"}>
             {Math.pow(2, binaryChars.length - (i + 1))}
           </span>
         </p>
@@ -107,7 +107,7 @@
   <article>
     <section>
       <h2>Hex</h2>
-      <p>{hex === 'NAN' ? '0' : hex}</p>
+      <p>{hex === "NAN" ? "0" : hex}</p>
     </section>
     <section>
       <h2>Decimal</h2>
@@ -117,8 +117,8 @@
   <footer>
     {#if isTouchEnabled}
       <p>
-        <span on:click={() => addToBinary('1')}> 1 </span>
-        <span on:click={() => addToBinary('0')}> 0 </span>
+        <span on:click={() => addToBinary("1")}> 1 </span>
+        <span on:click={() => addToBinary("0")}> 0 </span>
       </p>
     {/if}
     <p>Created by <a href="https://zmc.dev/">Zach</a></p>
@@ -135,7 +135,7 @@
     position: relative;
     color: black;
     padding: 0;
-    font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+    font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
     font-weight: 400;
     user-select: none;
   }
@@ -156,14 +156,14 @@
     font-size: 4vw;
     background: white;
     color: black;
-    border: .5rem solid black;
+    border: 0.5rem solid black;
     border-radius: 1vw;
     z-index: 200;
   }
   div.hint.dark > p {
     background: black;
     color: white;
-    border: .5rem solid white;
+    border: 0.5rem solid white;
   }
   main {
     display: grid;
@@ -177,8 +177,9 @@
     color: white;
   }
   header {
-    font-family: 'Saira Condensed', Impact, Haettenschweiler,
-      'Arial Narrow Bold', sans-serif;
+    font-family:
+      "Saira Condensed", Impact, Haettenschweiler, "Arial Narrow Bold",
+      sans-serif;
     display: flex;
     justify-self: center;
     align-items: center;
@@ -254,7 +255,7 @@
     margin-top: -2vw;
   }
   article:first-of-type > section > p > span {
-    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    font-family: "Share Tech Mono", "Courier New", Courier, monospace;
     font-size: 20vw;
     height: 19vw;
   }
@@ -310,7 +311,7 @@
     left: 8vw;
   }
   article:last-of-type > section > p {
-    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    font-family: "Share Tech Mono", "Courier New", Courier, monospace;
     text-align: right;
     font-size: 19vw;
     height: 19vw;
@@ -334,7 +335,7 @@
     align-self: flex-end;
   }
   footer > p > span {
-    font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+    font-family: "Share Tech Mono", "Courier New", Courier, monospace;
     flex: 1;
     font-size: 10vw;
     padding: 10vw;
