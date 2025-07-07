@@ -25,6 +25,9 @@ jobs:
       with:
         path: dist/
   deploy:
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.upload.outputs.page_url }}
