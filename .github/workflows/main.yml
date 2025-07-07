@@ -15,16 +15,19 @@ jobs:
       with:
         node-version: '20'
     - name: build
+      id: build
       run: |
         npm ci
         npm run build
-    - uses: actions/upload-pages-artifact@v3
+    - name: upload-pages-artifact
+      uses: actions/upload-pages-artifact@v3
+      id: upload
       with:
         path: dist/
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.upload.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
     steps:
